@@ -1,0 +1,6 @@
+name: RPGStats
+version: @version@
+main: teamif.rpgstats.RPGStats
+api-version: '1.13'
+prefix: '[RPGStats]'
+authors: [Team_IF]
