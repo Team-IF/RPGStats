@@ -1,4 +1,4 @@
-package teamif.rpgstats;
+package io.teamif.rpgstats;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
