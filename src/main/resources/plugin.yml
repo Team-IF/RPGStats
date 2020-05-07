@@ -1,0 +1,6 @@
+name: RPGStats
+version: @version@
+main: io.teamif.rpgstats.plugin.RPGStats
+api-version: "1.13"
+prefix: RPGStats
+authors: [Patrick, Coder-Iro]
