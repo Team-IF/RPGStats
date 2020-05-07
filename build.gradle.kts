@@ -54,65 +54,62 @@ tasks {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("RPGStats") {
+            from(components["java"])
 
-try {
-    publishing {
-        publications {
-            create<MavenPublication>("RPGStats") {
-                from(components["java"])
+            artifact(tasks["sourcesJar"])
+            artifact(tasks["dokkaJar"])
 
-                artifact(tasks["sourcesJar"])
-                artifact(tasks["dokkaJar"])
+            repositories {
+                mavenLocal()
+            }
 
-                repositories {
-                    mavenLocal()
+            pom {
+                name.set("RPGStats")
+                description.set("A vector game for education")
+                url.set("https://github.com/Team-IF/RPGStats")
+
+                licenses {
+                    license {
+                        name.set("GNU General Public License v2.0")
+                        url.set("https://opensource.org/licenses/gpl-2.0.php")
+                    }
                 }
 
-                pom {
-                    name.set("RPGStats")
-                    description.set("A vector game for education")
+                developers {
+                    developer {
+                        id.set("patrick-mc")
+                        name.set("PatrickKR")
+                        email.set("patrickkr@teamif.io")
+                        url.set("https://github.com/patrick-mc")
+                        roles.addAll("developer")
+                        timezone.set("Asia/Seoul")
+                    }
+
+                    developer {
+                        id.set("Coder-Iro")
+                        name.set("Coder Iro")
+                        email.set("Coder-Iro@teamif.io")
+                        url.set("https://github.com/Coder-Iro")
+                        roles.addAll("developer")
+                        timezone.set("Asia/Seoul")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git://github.com/Team-IF/RPGStats.git")
+                    developerConnection.set("scm:git:ssh://github.com:Team-IF/RPGStats.git")
                     url.set("https://github.com/Team-IF/RPGStats")
-
-                    licenses {
-                        license {
-                            name.set("GNU General Public License v2.0")
-                            url.set("https://opensource.org/licenses/gpl-2.0.php")
-                        }
-                    }
-
-                    developers {
-                        developer {
-                            id.set("patrick-mc")
-                            name.set("PatrickKR")
-                            email.set("patrickkr@teamif.io")
-                            url.set("https://github.com/patrick-mc")
-                            roles.addAll("developer")
-                            timezone.set("Asia/Seoul")
-                        }
-						
-                        developer {
-                            id.set("Coder-Iro")
-                            name.set("Coder Iro")
-                            email.set("Coder-Iro@teamif.io")
-                            url.set("https://github.com/Coder-Iro")
-                            roles.addAll("developer")
-                            timezone.set("Asia/Seoul")
-                        }
-                    }
-
-                    scm {
-                        connection.set("scm:git:git://github.com/Team-IF/RPGStats.git")
-                        developerConnection.set("scm:git:ssh://github.com:Team-IF/RPGStats.git")
-                        url.set("https://github.com/Team-IF/RPGStats")
-                    }
                 }
             }
         }
     }
+}
 
-    signing {
-        isRequired = true
-        sign(tasks["jar"], tasks["sourcesJar"], tasks["dokkaJar"])
-        sign(publishing.publications["RPGStats"])
-    }
-} catch (ignored: groovy.lang.MissingPropertyException) {}
+signing {
+    isRequired = false
+    sign(tasks["jar"], tasks["sourcesJar"], tasks["dokkaJar"])
+    sign(publishing.publications["RPGStats"])
+}
