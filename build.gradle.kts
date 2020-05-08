@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.sp igotmc:spigot-api:1.12.2-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT")
     compileOnly("org.projectlombok:lombok:1.18.12")
     compileOnly("com.googlecode.json-simple:json-simple:1.1.1")
     annotationProcessor("org.projectlombok:lombok:1.18.12")
