@@ -6,6 +6,9 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Abstract tribe class
+ */
 public abstract class ITribe {
     @Getter(AccessLevel.PUBLIC)
     TribeType tribeType;

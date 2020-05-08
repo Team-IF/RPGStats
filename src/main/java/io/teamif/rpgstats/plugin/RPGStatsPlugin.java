@@ -1,12 +1,6 @@
 package io.teamif.rpgstats.plugin;
 
-import io.teamif.rpgstats.roles.Warrior;
-import io.teamif.rpgstats.tribes.Human;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.ScoreboardManager;
 
 import java.util.logging.Logger;
 

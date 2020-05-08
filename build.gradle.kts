@@ -16,8 +16,9 @@ repositories {
 }
 
 dependencies {
-    implementation("org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT")
+    compileOnly("org.sp igotmc:spigot-api:1.12.2-R0.1-SNAPSHOT")
     compileOnly("org.projectlombok:lombok:1.18.12")
+    compileOnly("com.googlecode.json-simple:json-simple:1.1.1")
     annotationProcessor("org.projectlombok:lombok:1.18.12")
 }
 
@@ -95,6 +96,15 @@ publishing {
                         name.set("Coder Iro")
                         email.set("Coder-Iro@teamif.io")
                         url.set("https://github.com/Coder-Iro")
+                        roles.addAll("developer")
+                        timezone.set("Asia/Seoul")
+                    }
+
+                    developer {
+                        id.set("GPLNature")
+                        name.set("GPLNature")
+                        email.set("GPLNature@teamif.io")
+                        url.set("https://github.com/gplnature")
                         roles.addAll("developer")
                         timezone.set("Asia/Seoul")
                     }

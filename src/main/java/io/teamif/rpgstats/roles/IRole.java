@@ -5,10 +5,12 @@ import lombok.AccessLevel;
 import lombok.Getter;
 
 /**
- * Role interface - will be used as RPG roles.
+ * Abstract role class
  */
 public abstract class IRole {
-
+    /**
+     * Role type of this role.
+     */
     @Getter(AccessLevel.PUBLIC)
     RoleType roleType;
 }
