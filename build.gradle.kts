@@ -17,6 +17,8 @@ repositories {
 
 dependencies {
     implementation("org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT")
+    compileOnly("org.projectlombok:lombok:1.18.12")
+    annotationProcessor("org.projectlombok:lombok:1.18.12")
 }
 
 tasks {
