@@ -1,7 +1,10 @@
 package io.teamif.rpgstats.plugin;
 
+import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.plugin.java.JavaPluginLoader;
 
+import java.io.File;
 import java.util.logging.Logger;
 
 /**
@@ -9,11 +12,16 @@ import java.util.logging.Logger;
  */
 @SuppressWarnings("unused")
 public final class RPGStatsPlugin extends JavaPlugin {
+
+    public static RPGStatsPlugin instance;
+
     /**
      * Called on enabling process
      */
     @Override
     public void onEnable() {
+        instance = this;
+        saveDefaultConfig();
         final Logger logger = getLogger();
         logger.info("========================================");
         logger.info("Enabling RPGStats Plugin...");
