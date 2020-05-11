@@ -1,5 +1,6 @@
 package io.teamif.rpgstats.plugin;
 
+import io.teamif.rpgstats.listener.CommonListener;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;

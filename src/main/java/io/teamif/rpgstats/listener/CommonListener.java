@@ -1,5 +1,6 @@
-package io.teamif.rpgstats.plugin;
+package io.teamif.rpgstats.listener;
 
+import io.teamif.rpgstats.plugin.RPGStatsPlugin;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;

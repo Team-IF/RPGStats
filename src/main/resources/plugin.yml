@@ -3,4 +3,4 @@ version: @version@
 main: io.teamif.rpgstats.plugin.RPGStatsPlugin
 api-version: "1.13"
 prefix: RPGStats
-authors: [Patrick, Coder-Iro]
+authors: [Patrick, GPL_Developer, Coder-Iro]
