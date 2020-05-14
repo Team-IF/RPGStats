@@ -5,7 +5,9 @@ import lombok.Getter;
 
 public enum RoleType {
 
-    Warrior("전사");
+    Warrior("전사"),
+    Rogue("도적"),
+    Wizard("마법사");
 
     @Getter(AccessLevel.PUBLIC)
     private String roleName;
