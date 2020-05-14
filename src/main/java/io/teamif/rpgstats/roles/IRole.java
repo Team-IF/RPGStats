@@ -18,10 +18,10 @@ public abstract class IRole {
      * Role Health
      */
     @Getter(AccessLevel.PUBLIC)
-    public double health;
+    private double health;
     /**
      * Role type of this role.
      */
     @Getter(AccessLevel.PUBLIC)
-    public RoleType roleType;
+    private RoleType roleType;
 }
