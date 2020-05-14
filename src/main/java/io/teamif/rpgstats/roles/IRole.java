@@ -8,13 +8,17 @@ import lombok.Getter;
  * Abstract role class
  */
 public abstract class IRole {
-    public double health;
 
     public IRole(RoleType roleType, double health) {
         this.roleType = roleType;
         this.health = health;
     }
 
+    /**
+     * Role Health
+     */
+    @Getter(AccessLevel.PUBLIC)
+    public double health;
     /**
      * Role type of this role.
      */
