@@ -7,6 +7,6 @@ import io.teamif.rpgstats.roles.IRole;
 public class Rogue extends IRole {
 
     public Rogue() {
-        super(RoleType.Rogue, 0.0);// 체력 지정
+        super(RoleType.Rogue, 100.0);// 체력 지정
     }
 }

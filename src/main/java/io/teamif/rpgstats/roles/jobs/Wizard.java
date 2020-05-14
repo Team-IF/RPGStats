@@ -6,6 +6,6 @@ import io.teamif.rpgstats.roles.IRole;
 @SuppressWarnings("unused")
 public class Wizard extends IRole {
     public Wizard() {
-        super(RoleType.Wizard, 0.0); // 체력지정
+        super(RoleType.Wizard, 100.0); // 체력지정
     }
 }
