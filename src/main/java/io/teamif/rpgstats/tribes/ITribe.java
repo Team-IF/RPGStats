@@ -15,10 +15,12 @@ public abstract class ITribe {
         this.hostileType = hostileType;
         this.roleType = roleType;
     }
+
     @Getter(AccessLevel.PUBLIC)
     TribeType tribeType;
     @Getter(AccessLevel.PUBLIC)
     TribeType hostileType;
-    @Getter(AccessLevel.PUBLIC) @Setter(AccessLevel.PUBLIC)
+    @Getter(AccessLevel.PUBLIC)
+    @Setter(AccessLevel.PUBLIC)
     IRole roleType;
 }

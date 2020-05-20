@@ -1,13 +1,15 @@
 package io.teamif.rpgstats.json;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.teamif.rpgstats.plugin.RPGStatsPlugin;
-import lombok.SneakyThrows;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.util.logging.Logger;
 
 public class JsonController {
@@ -52,7 +54,7 @@ public class JsonController {
                 logger.warning(String.format("Error occurred while loading Json file. FileName: %s", dataTitle));
                 e.printStackTrace();
             }
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException  ex) {
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex) {
             ex.printStackTrace();
         }
         return null;
