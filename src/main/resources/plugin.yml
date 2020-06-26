@@ -1,7 +1,7 @@
 name: RPGStats
 version: @version@
 main: io.teamif.rpgstats.plugin.RPGStatsPlugin
-api-version: "1.13"
-prefix: RPGStats
+api-version: "1.12"
 authors: [Patrick, GPL_Developer, Coder-Iro]
+prefix: RPG
 depend: [Kotlin]
