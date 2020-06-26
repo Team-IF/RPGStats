@@ -5,7 +5,9 @@ package io.teamif.rpgstats.plugin
 //import io.teamif.rpgstats.role.RoleType
 //import io.teamif.rpgstats.tribe.TribeType
 //DEBUG END
+import io.teamif.rpgstats.util.json.io.JsonIOHandler
 import io.teamif.rpgstats.util.json.io.JsonIOManager
+import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 
 /**
@@ -15,8 +17,7 @@ class RPGStatsPlugin : JavaPlugin() {
     companion object {
         lateinit var instance: RPGStatsPlugin
             private set
-        lateinit var IOManager: JsonIOManager
-            private set
+        private lateinit var IOManager: JsonIOManager
     }
 
     /**
@@ -25,11 +26,19 @@ class RPGStatsPlugin : JavaPlugin() {
     override fun onEnable() {
         instance = this
         IOManager = JsonIOManager()
+
         saveDefaultConfig()
+        JsonIOHandler.FOLDER.mkdir()
+        server.scheduler.runTaskTimer(this, {
+            IOManager.saveJson()
+            Bukkit.broadcastMessage("서버 파일 자동 저장중입니다!")
+        }, 0, 12000)
+
         logger.info("========================================")
         logger.info("Enabling RPGStats Plugin...")
         logger.info("Plugin Made By. Team IF (PatrickKR, Coder-Iro, GPL_Developer)")
         logger.info("========================================")
+
 //        DEBUG START
 //        IOManager.run {
 //            loadJsons()

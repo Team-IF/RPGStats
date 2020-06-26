@@ -12,6 +12,7 @@ import java.lang.reflect.Modifier
 
 object JsonIOHandler {
     private val GSON = GsonBuilder().setPrettyPrinting().create()
+    internal val FOLDER = File(RPGStatsPlugin.instance.dataFolder, "data")
 
     /***
      * 객체를 Json 파일로 저장해준다.
@@ -22,7 +23,7 @@ object JsonIOHandler {
         var name = jsonObject.fileName
         if (!name.endsWith(".json")) name += ".json"
         try {
-            FileWriter(File(RPGStatsPlugin.instance.dataFolder, name)).use { writer ->
+            FileWriter(File(FOLDER, name)).use { writer ->
                 GSON.toJson(jsonObject, writer)
             }
         } catch (e: IOException) {
@@ -50,7 +51,7 @@ object JsonIOHandler {
 
         if (!name.endsWith(".json")) name += ".json"
         try {
-            val file = File(RPGStatsPlugin.instance.dataFolder, name)
+            val file = File(FOLDER, name)
             if (file.exists()) {
                 FileReader(file).use { reader ->
                     return GSON.fromJson(reader, target.javaClass)
