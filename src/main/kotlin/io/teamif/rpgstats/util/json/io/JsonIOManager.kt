@@ -2,7 +2,7 @@ package io.teamif.rpgstats.util.json.io
 
 import io.teamif.rpgstats.util.json.PlayerData
 
-class JsonIOManager {
+internal class JsonIOManager {
     var playerData = PlayerData()
         internal set
 
