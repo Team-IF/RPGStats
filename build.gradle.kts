@@ -1,5 +1,5 @@
 plugins {
-	java
+    kotlin("jvm") version "1.3.72"
     `maven-publish`
     signing
     id("org.jetbrains.dokka") version "0.10.0"
@@ -16,9 +16,8 @@ repositories {
 }
 
 dependencies {
+    compileOnly(kotlin("stdlib-jdk8"))
     compileOnly("org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT")
-    compileOnly("org.projectlombok:lombok:1.18.12")
-    annotationProcessor("org.projectlombok:lombok:1.18.12")
 }
 
 tasks {
