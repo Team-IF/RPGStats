@@ -27,8 +27,7 @@ object JsonIOHandler {
                 GSON.toJson(jsonObject, writer)
             }
         } catch (e: IOException) {
-            val logger = RPGStatsPlugin.instance.logger
-            logger.warning("Error occurred while saving json file: $name")
+            RPGStatsPlugin.instance.logger.warning("Error occurred while saving json file. FileName: $name")
             e.printStackTrace()
         }
     }
