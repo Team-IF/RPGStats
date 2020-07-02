@@ -1,6 +1,6 @@
 package io.teamif.rpgstats.role
 
-import io.teamif.rpgstats.listener.EntityDamageByEntityEventHandler
+import io.teamif.rpgstats.listener.PlayerHitEntityEventHandler
 import io.teamif.rpgstats.listener.PlayerInteractEventHandler
 import io.teamif.rpgstats.plugin.RPGStatsPlugin
 import org.bukkit.Bukkit
@@ -12,16 +12,19 @@ import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 import kotlin.random.Random
 
-class RogueRole : AbstractRole(RoleType.Rogue), PlayerInteractEventHandler, EntityDamageByEntityEventHandler {
+class RogueRole : ThiefRole(), PlayerInteractEventHandler, PlayerHitEntityEventHandler {
     private var count = 0
 
+    override val maxHealth = 1000.0
+
     override fun playerInteractAction(event: PlayerInteractEvent) {
+        super.playerInteractAction(event)
         val player = event.player
         when (val material = event.item?.type?: return) {
             Material.RED_MUSHROOM -> {
                 if (!player.hasCooldown(material)) {
                     event.isCancelled = true
-                    player.setCooldown(material, 1200)
+                    player.setCooldown(material, 120)
                     with(RPGStatsPlugin.instance) {
                         Bukkit.getOnlinePlayers().forEach {
                             it.hidePlayer(this, player)
@@ -38,7 +41,7 @@ class RogueRole : AbstractRole(RoleType.Rogue), PlayerInteractEventHandler, Enti
         }
     }
 
-    override fun entityDamageByEntityAction(event: EntityDamageByEntityEvent) {
+    override fun playerHitEntityAction(event: EntityDamageByEntityEvent) {
         val player = event.damager as Player
 
         if (isCritical(player))

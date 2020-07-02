@@ -7,8 +7,11 @@ import io.teamif.rpgstats.listener.CommonListener
 import io.teamif.rpgstats.listener.RoleEventListener
 import io.teamif.rpgstats.util.json.io.JsonIOHandler
 import io.teamif.rpgstats.util.json.io.JsonIOManager
+import net.md_5.bungee.api.ChatMessageType
+import net.md_5.bungee.api.chat.TextComponent
 //import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
+import java.util.UUID
 
 /**
  * Main class of the plugin
@@ -37,6 +40,12 @@ class RPGStatsPlugin : JavaPlugin() {
             registerEvents(RoleEventListener(), instance)
             registerEvents(CommonListener(), instance)
         }
+
+        server.scheduler.runTaskTimer(this, {
+            IOManager.playerData.data.forEach {
+                server.getPlayer(UUID.fromString(it.key))?.spigot()?.sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText("HEALTH: ${it.value.health}").first())
+            }
+        }, 0, 1)
 
         logger.info("========================================")
         logger.info("Enabling RPGStats Plugin...")

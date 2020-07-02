@@ -5,6 +5,8 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDamageByEntityEvent
+import org.bukkit.event.entity.EntityDamageEvent
+import org.bukkit.event.entity.EntityDeathEvent
 import org.bukkit.event.player.PlayerInteractEvent
 
 internal class RoleEventListener : Listener {
@@ -18,9 +20,26 @@ internal class RoleEventListener : Listener {
 
     @EventHandler
     fun onEntityDamageByEntity(event: EntityDamageByEntityEvent) {
-        val entity = event.damager
-        if (entity is Player && entity.role is EntityDamageByEntityEventHandler) {
-            (entity.role as EntityDamageByEntityEventHandler).entityDamageByEntityAction(event)
+        val damager = event.damager
+        if (damager != null && damager is Player && damager.role is PlayerHitEntityEventHandler) {
+            (damager.role as PlayerHitEntityEventHandler).playerHitEntityAction(event)
+        }
+    }
+
+    @EventHandler
+    fun onEntityDamage(event: EntityDamageEvent) {
+        val entity = event.entity?: return
+        if (entity is Player && entity.role is PlayerHitEntityEventHandler) {
+            (entity.role as PlayerDamageEventHandler).playerDamageAction(event)
+        }
+    }
+
+    @EventHandler
+    fun onEntityDeath(event: EntityDeathEvent) {
+        val entity = event.entity?: return
+        val killer = entity.killer?: return
+        if (killer.role is PlayerKillEntityEventHandler) {
+            (killer.role as PlayerKillEntityEventHandler).playerKillEntityAction(event)
         }
     }
 

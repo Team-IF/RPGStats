@@ -11,6 +11,7 @@ import org.bukkit.event.player.PlayerJoinEvent
 internal class CommonListener : Listener {
     @EventHandler
     fun onPlayerJoin(event: PlayerJoinEvent) {
-        RPGStatsPlugin.IOManager.playerData.data[event.player.uniqueId.toString()] = Player(TribeType.Human, RoleType.Rogue)
+        val uuid = event.player.uniqueId.toString()
+        RPGStatsPlugin.IOManager.playerData.data[uuid] = Player(uuid, TribeType.Human, RoleType.Rogue)
     }
 }
